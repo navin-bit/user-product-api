@@ -25,7 +25,6 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 
 app.post("/", (req, res) => {
-  console.log(req.file);
   return res.send("Home");
 });
 
