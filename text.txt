@@ -1,0 +1,68 @@
+Back-End :
+
+   Node JS    
+   JWT - Token authentication
+   Database- MongoDb
+   Express- Routing nodes
+   Logger-Winston
+   Validation - Joi
+   Postman- API testing
+   Swagger- Api documentation
+
+----------------------------------------------------------
+User model :
+
+id,
+name,
+email,
+phone,
+address,
+CreatedAt: Date time
+updatedAt: Date time
+ 
+------------------------------------------------------------
+Products model:
+
+id
+name
+description
+userid
+published: is products published or not (boolean)
+image: cover page of the products
+Price
+Rating
+CreatedAt: Date time
+updatedAt: Date time
+createdBy : userId
+updatedBy : userId
+
+-------------------------------------------------------------------
+
+1. Apis for list given below
+
+POST: Sign up(register new user)api,
+POST :Login Api 
+
+USER CRUD
+----------
+POST api/users                    -    add new user
+PUT  api/users/:id                -     update user by id
+GET api/users                       -     get all user
+GET api/users/:id                 -     get each user details
+
+
+Product CRUD
+---------------
+GET api/products.                       - get all products
+GET api/products/:id                  -    get products by id
+POST api/products add              -  new products
+PUT api/products/:id                   -  update products by id
+DELETE api/products/:id            -   remove products by id
+GET api/products/published      -  find all published products
+GET api/products?name=           -  find all products by name
+GET api/products/:userId    -    get all products by user id
+
+
+
+
+2.Apply JWT token for all the api
