@@ -3,7 +3,7 @@ const { logger } = require("./logger");
 
 // User schema
 const userSchema = Joi.object({
-  username: Joi.string().min(4).max(15).required(),
+  username: Joi.string().required(),
   email: Joi.string().email().required(),
   password: Joi.string().min(4).max(8).required(),
   phone: Joi.number().integer().min(1000000000).max(9999999999).required(),
