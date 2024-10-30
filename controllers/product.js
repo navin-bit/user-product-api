@@ -63,14 +63,17 @@ const updateProductById = async (req, res) => {
 
   try {
     const productUpdate = await Product.findByIdAndUpdate(id, updateData, {
-      new: true,//update document
+      new: true, //update document
     });
 
     if (!productUpdate) {
       logger.error("Product not found");
       return res.status(404).json({ message: "Product not found" });
     }
-    return res.status(200).json({ message: "Product updated successfully" });
+    return res.status(200).json({
+      message: "Product updated successfully",
+      productUpdate: productUpdate,
+    });
   } catch (error) {
     logger.error("Error updating product");
     return res.status(500).json({ message: "Error updating  product" });
