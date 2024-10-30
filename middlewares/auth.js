@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const auth = async (req, res, next) => {
   try {
-    const token = req.headers["authorization"];
+    const token = req.headers["Authorization"];
     if (!token) {
       return res.status(404).json({ message: "Not authorized login again" });
     }
