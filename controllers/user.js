@@ -95,7 +95,7 @@ const addUser = async (req, res) => {
       createdBy: req.user._id,
       updatedBy: req.user._id,
     });
-    newUser.save();
+    await newUser.save();
 
     return res.status(201).json({ message: "user created successfully" });
   } catch (error) {
@@ -142,7 +142,7 @@ const getUserById = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findById(id);
-    return res.status(201).json({ user });
+    return res.status(201).json(user);
   } catch (error) {
     logger.error("getUserById: Internal Server Error");
     return res
