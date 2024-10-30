@@ -25,7 +25,9 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 
 app.post("/", (req, res) => {
-  return res.send("Home");
+  return res.json({
+    message: "Hello",
+  });
 });
 
 app.listen(port, () => console.log(`http://localhost:${port}`));
