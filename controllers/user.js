@@ -124,7 +124,7 @@ const updateUserById = async (req, res) => {
 
   try {
     const updatedUser = await User.findByIdAndUpdate(id, updateData, {
-      new: true,
+      new: true, //update document
     });
 
     if (!updatedUser) {
