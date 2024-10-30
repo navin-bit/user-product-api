@@ -19,7 +19,7 @@ const userRouter = express.Router();
 userRouter.post("/signup", userValidation, signup);
 userRouter.post("/login", loginValidation, login);
 userRouter.post("/add", auth, userValidation, addUser);
-userRouter.put("/update/:id", auth, updateUserById);
+userRouter.put("/update/:id", auth, userValidation, updateUserById);
 userRouter.get("/", auth, getAllUsers);
 userRouter.get("/:id", auth, getUserById);
 
