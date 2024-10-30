@@ -120,19 +120,25 @@ const getAllUsers = async (req, res) => {
 
 const updateUserById = async (req, res) => {
   const { id } = req.params;
-  try {
-    const updateUser = await User.findByIdAndUpdate(id);
+  const updateData = req.body;
 
-    if (!updateUser) {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(id, updateData, {
+      new: true,
+    });
+
+    if (!updatedUser) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    return res.status(201).json({ message: "update user successfully" });
+    return res
+      .status(200)
+      .json({ message: "User updated successfully", user: updatedUser });
   } catch (error) {
-    logger.error("updateUserById:update user successfully");
+    logger.error("updateUserById: Internal Server Error", error);
     return res
       .status(500)
-      .json({ message: "Internal Server Error", error: error });
+      .json({ message: "Internal Server Error", error: error.message });
   }
 };
 
