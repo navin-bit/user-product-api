@@ -121,9 +121,7 @@ const getAllUsers = async (req, res) => {
 const updateUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    const updateUser = await User.findByIdAndUpdate(id, req.body, {
-      new: true, //update document
-    });
+    const updateUser = await User.findByIdAndUpdate(id);
 
     if (!updateUser) {
       return res.status(404).json({ message: "User not found" });
