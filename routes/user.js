@@ -20,7 +20,7 @@ userRouter.post("/signup", userValidation, signup);
 userRouter.post("/login", loginValidation, login);
 userRouter.post("/add", auth, userValidation, addUser);
 userRouter.put("/update/:id", auth, updateUserById);
-userRouter.get("/", auth, getAllUsers);
+userRouter.get("/all", auth, getAllUsers);
 userRouter.get("/:id", auth, getUserById);
 
 module.exports = {
