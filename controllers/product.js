@@ -1,5 +1,4 @@
 const { Product } = require("../models/product");
-const { updateUserById } = require("./user");
 
 const addProduct = async (req, res) => {
   const { name, description, published, price, rating } = req.body;
@@ -22,7 +21,7 @@ const addProduct = async (req, res) => {
       updatedBy: req.user._id,
     });
 
-    newProduct.save();
+    await newProduct.save();
     return res.status(201).json({ message: "Product added successfully" });
   } catch (error) {
     logger.error("Error adding product");

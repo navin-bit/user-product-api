@@ -25,12 +25,12 @@ const signup = async (req, res) => {
       address,
     });
 
-    newUser.save();
+    await newUser.save();
 
     return res.status(201).json({ message: "user created successfully" });
   } catch (error) {
     logger.error("signup: Internal Server Error");
-    return res.status(500).json({ message: "Internal Server Error" });
+    return res.status(500).json({ message: "signup Internal Server Error" });
   }
 };
 
