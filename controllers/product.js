@@ -59,9 +59,12 @@ const getProductById = async (req, res) => {
 
 const updateProductById = async (req, res) => {
   const { id } = req.params;
+  const updateData = req.body;
 
   try {
-    const productUpdate = await Product.findByIdAndUpdate(id);
+    const productUpdate = await Product.findByIdAndUpdate(id, updateData, {
+      new: true,//update document
+    });
 
     if (!productUpdate) {
       logger.error("Product not found");
