@@ -121,7 +121,8 @@ const getAllUsers = async (req, res) => {
 const updateUserById = async (req, res) => {
   const { id } = req.params;
   try {
-    await User.findByIdAndUpdate(id, req.body);
+    const updateUser = await User.findByIdAndUpdate(id, req.body);
+    await updateUser.save();
 
     return res.status(201).json({ message: "update user successfully" });
   } catch (error) {
