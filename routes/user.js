@@ -18,10 +18,10 @@ const userRouter = express.Router();
 
 userRouter.post("/signup", userValidation, signup);
 userRouter.post("/login", loginValidation, login);
-userRouter.post("/add", auth, userValidation, addUser);
-userRouter.put("/update/:id", auth, updateUserById);
-userRouter.get("/all", auth, getAllUsers);
-userRouter.get("/:id", auth, getUserById);
+userRouter.post("/add", userValidation, addUser);
+userRouter.put("/update/:id", updateUserById);
+userRouter.get("/all", getAllUsers);
+userRouter.get("/:id", getUserById);
 
 module.exports = {
   userRouter,
