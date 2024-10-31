@@ -8,8 +8,6 @@ const userSchema = Joi.object({
   password: Joi.string().min(4).max(8).required(),
   phone: Joi.number().integer().min(1000000000).max(9999999999).required(),
   address: Joi.string().required(),
-  createdBy: Joi.string().optional(),
-  updatedBy: Joi.string().optional(),
 });
 
 // login schema
@@ -26,8 +24,6 @@ const productSchema = Joi.object({
   published: Joi.boolean().required(),
   price: Joi.number().required(),
   rating: Joi.number().required(),
-  createdBy: Joi.string().optional(),
-  updatedBy: Joi.string().optional(),
 });
 
 // Login validation middleware
